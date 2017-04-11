@@ -1,0 +1,31 @@
+<!-- 1. HTML needs to have 3 rows of panels: 'Your Character', 'Enemies Available To Attack', 'Fight Section', 'Defender'
+2. Characters have 3 attributes: HP, Attack Power, Counter Attack Power
+    each time player attacks, their character's AP increases by its base AP (e.g. AP = 6, 12, 18)
+    enemy character only has CAP, stays constant
+3. Obi-Wan Kenobi (120HP, 10AP, 12CAP), Darth Sidious (150HP, 15AP, 8CAP), Darth Maul (130HP, 12AP, 7CAP), Luke Skywalker (100HP, 8AP, 14CAP)
+2. Select character - becomes 'Your Character'
+3. Select character - becomes 'Defender'
+4. Click 'Attack' button in 'Fight Section'
+    HP will reduce for both 'Your Character' and 'Defender'
+    if 'Your Character' HP < 0, game over
+    if 'Deffender' HP < 0, display 'you have defeated XYZ, you an choose another enemy', hide img of character, game continues
+5. When game is over, 'Restart' button appears at the bottom
+    if win, display 'You won! Game over!'
+    if lose, display 'You lost! Game over!' -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Star Wars RPG Game!</h3>
+      </div>
+      <div class="panel-body">
+        <h1 id="Your Character"></h1>
+        <h1 id="Enemies Available To Attack"></h1>
+        <h1 id="Fight Section"></h1>
+        <h1 id="Defender"></h1>
+        <hr>
+        <h1 id="game-over"></h1>
+      </div>
+    </div>
+  </div>
+</div>
