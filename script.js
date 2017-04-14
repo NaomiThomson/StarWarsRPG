@@ -61,9 +61,8 @@ $(document).ready(function() {
         if (userHP < 0 || defenderHP < 0) {
           // if 'user' won, game continues
           if (userHP > defenderHP) {
-            // 'defender' display none
-            // $('#defender').css('display','none');
-            // 'user' chooses new 'defender'
+            // delete entire 'defender' HTML element
+            $("img[characterType='defender']").remove();
             console.log('WIN');
           } else {
             // if 'defender' won, game is over
