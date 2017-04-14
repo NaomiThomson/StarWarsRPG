@@ -24,6 +24,10 @@ $(document).ready(function() {
       };
     });
 
+    // update HTML of 'user' and 'defender' with their relative HP data
+    var userHP = parseInt($("img[characterType='user']").attr('data-HP'), 10);
+    var oldUserHTML = $('#user').html();
+
     // assign 'defender' attribute to enemy chosen, then move said enemy to '#defender' section
     $('img').click(function() {
       $(this).attr('characterType', 'defender');
@@ -33,18 +37,18 @@ $(document).ready(function() {
         };
       });
 
-      // update HTML of 'user' and 'defender' with their relative HP data
-      var userHP = parseInt($("img[characterType='user']").attr('data-HP'), 10);
-      var oldUserHTML = $('#user').html();
-
       var defenderHP = parseInt($("img[characterType='defender']").attr('data-HP'), 10);
       var oldDefenderHTML = $('#defender').html();
 
       $('#user').html(oldUserHTML + userHP);
       $('#defender').html(oldDefenderHTML + defenderHP);
 
+      // enable button
+      $('.btn.fight').prop("disabled",false);
+
       // every time user clicks on fight button, HP of 'user' and 'defender' reduced
       $('.btn.fight').click(function() {
+
         var userAttack = parseInt($("img[characterType='user']").attr('data-AP'), 10);
         var defenderAttack = parseInt($("img[characterType='defender']").attr('data-CAP'), 10);
 
@@ -54,15 +58,19 @@ $(document).ready(function() {
         $('#user').html(oldUserHTML + userHP);
         $('#defender').html(oldDefenderHTML + defenderHP);
 
-        userAttack += userAttack;
+
+        userAttack++;
         console.log(userAttack);
 
         // once HP of either 'user' or 'defender' has been reduced to 0 or less, game is over
         if (userHP < 0 || defenderHP < 0) {
           // if 'user' won, game continues
           if (userHP > defenderHP) {
+            //disable button
+            $('.btn.fight').prop("disabled",true);
             // delete entire 'defender' HTML element
             $("img[characterType='defender']").remove();
+            console.log($("img[characterType='defender']"));
             console.log('WIN');
           } else {
             // if 'defender' won, game is over
@@ -72,10 +80,10 @@ $(document).ready(function() {
             })
           };
 
-
-
         };
-      })
+      });
+
+
     });
   });
 })
