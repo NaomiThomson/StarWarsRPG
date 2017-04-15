@@ -7,3 +7,9 @@ img {
 .hidden{
   diisplay
 }
+
+#user-HP,
+#defender-HP {
+  margin-left: 100px;
+  font-size: 40px;
+}
